@@ -23,7 +23,7 @@ jobs:
      steps:
      - uses: actions/checkout@v3
      - name: Debug Azure secret values (safe)
-      run: |
+       run: |
         echo "AZURE_CLIENT_ID is passed: ${{ secrets.AZURE_CLIENT_ID != '' }}"
         echo "AZURE_TENANT_ID is passed: ${{ secrets.AZURE_TENANT_ID != '' }}"
         echo "AZURE_SUBSCRIPTION_ID is passed: ${{ secrets.AZURE_SUBSCRIPTION_ID != '' }}"
