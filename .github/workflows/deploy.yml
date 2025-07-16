@@ -38,6 +38,13 @@ jobs:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+     - name: Debug input presence
+       run: |
+         echo "Environment Type: ${{ inputs.environmentType }}"
+         echo "Review API URL: ${{ inputs.reviewApiUrl }}"
+         echo "Review API Key passed: ${{ secrets.reviewApiKey != '' }}"
+          
      - if: inputs.environmentType != 'Production'
        uses: azure/arm-deploy@v1
        name: Run preflight validation
