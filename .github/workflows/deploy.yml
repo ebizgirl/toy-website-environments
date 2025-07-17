@@ -57,7 +57,6 @@ jobs:
            environmentType=${{ inputs.environmentType }}
            reviewApiUrl=${{ inputs.reviewApiUrl }}
            reviewApiKey=${{ secrets.reviewApiKey }}
-         deploymentMode: Incremental
          additionalArguments: --what-if
      - if: inputs.environmentType == 'Production'
        uses: azure/arm-deploy@v1
