@@ -50,7 +50,6 @@ jobs:
        name: Run preflight validation
        with:
          scope: resourcegroup
-         failOnStdErr: false
          deploymentName: ${{ github.run_number }}
          resourceGroupName: ${{ inputs.resourceGroupName }}
          template: ./deploy/main.bicep
@@ -58,7 +57,8 @@ jobs:
            environmentType=${{ inputs.environmentType }}
            reviewApiUrl=${{ inputs.reviewApiUrl }}
            reviewApiKey=${{ secrets.reviewApiKey }}
-         deploymentMode: Validate
+         deploymentMode: Incremental
+         additionalArguments: --what-if
      - if: inputs.environmentType == 'Production'
        uses: azure/arm-deploy@v1
        name: Run what-if
