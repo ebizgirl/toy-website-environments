@@ -12,13 +12,6 @@ param environmentType string
 @maxLength(13)
 param resourceNameSuffix string = uniqueString(resourceGroup().id)
 
-@description('The URL to the product reviwe API.')
-param reviewApiUrl string
-
-@secure()
-@description('The API key for the product review API.')
-param reviewApiKey string
-
 // Define the names for resources.
 var appServiceAppName = 'toy-website-${resourceNameSuffix}'
 var appServicePlanName = 'toy-website'
@@ -77,12 +70,6 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
           value: applicationInsights.properties.ConnectionString
         }
-        {name: 'reviewApiUrl'
-         value: reviewApiUrl
-       }
-       {name: 'reviewApiKey'
-         value: reviewApiKey
-       }
       ]
     }
   }
