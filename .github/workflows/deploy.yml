@@ -58,6 +58,7 @@ jobs:
            reviewApiUrl=${{ inputs.reviewApiUrl }}
            reviewApiKey=${{ secrets.reviewApiKey }}
          additionalArguments: --what-if
+         failOnStdErr: false
      - if: inputs.environmentType == 'Production'
        uses: azure/arm-deploy@v1
        name: Run what-if
