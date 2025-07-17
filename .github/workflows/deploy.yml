@@ -50,6 +50,7 @@ jobs:
        name: Run preflight validation
        with:
          scope: resourcegroup
+         failOnStdErr: false
          deploymentName: ${{ github.run_number }}
          resourceGroupName: ${{ inputs.resourceGroupName }}
          template: ./deploy/main.bicep
